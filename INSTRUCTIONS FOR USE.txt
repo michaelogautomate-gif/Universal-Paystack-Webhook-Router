@@ -1,0 +1,50 @@
+================================================================================
+          UNIVERSAL PAYSTACK WEBHOOK ROUTER — INSTALLATION MANUAL
+================================================================================
+
+STEP 1: INITIALIZE AND UPLOAD THE CORE ROUTER HUB
+--------------------------------------------------------------------------------
+Option A (Standard Dashboard Upload):
+1. Take the completed single file named 'webhook-router.php'.
+2. Compress or Zip it right on your computer into a new archive folder named 
+   'webhook-router.zip'.
+3. Head over to the admin control desk of your central primary platform site.
+4. Navigate to: Plugins > Add New > Upload Plugin.
+5. Choose your newly created 'webhook-router.zip' file, upload, and click 'Activate'.
+
+Option B (Alternative Directory Upload):
+1. Extract or access 'webhook-router.php'.
+2. Upload this file via secure SFTP or your Hosting File Manager directly into:
+   /wp-content/plugins/webhook-router/
+3. Head to the WordPress Admin Area, locate 'Universal Paystack Webhook Router' 
+   inside the active plugin listings table, and click 'Activate'.
+
+STEP 2: ROUTER HUB CONFIGURATION MAP
+--------------------------------------------------------------------------------
+1. Navigate to Settings > Paystack Router inside your primary domain's dashboard.
+2. Provide your merchant credentials inside the 'Live Secret Key' and 'Test Secret Key' 
+   fields and save configurations.
+3. Highlight and copy the customized integration link generated at the bottom of 
+   the control panel: (e.g., https://yourdomain.com/wp-json/paystack/v1/router).
+4. Jump to your live Paystack Merchant Management Portal -> Settings -> API Keys & Webhooks.
+5. Paste this copied router destination path straight into the 'Webhook URL' input 
+   slot and hit save.
+
+STEP 3: DEPLOY EXTENSION METADATA SNIPPETS TO CHILD SITES
+--------------------------------------------------------------------------------
+To route incoming requests properly without modifying system files, install a 
+snippet manager plugin (such as 'WPCode' or 'Code Snippets') on each target child site.
+
+Site 1: Primary WooCommerce Store Deployment
+1. Open the file titled 'snippet for the main site.txt'.
+2. Select and copy its complete text block code contents.
+3. Access your Main Site dashboard snippet tool, create a new 'PHP Snippet', set it to 
+   'Run Everywhere', paste the copied block, and select Activate.
+
+Site 2: Secondary Learning/Membership Platform Site Deployment
+1. Open the file titled 'snippet for the other site.txt'.
+2. Select and copy its complete text block code contents.
+3. Access your Secondary Site dashboard snippet tool, create a new 'PHP Snippet', set it to 
+   'Run Everywhere', paste the copied block, and select Activate.
+
+================================================================================

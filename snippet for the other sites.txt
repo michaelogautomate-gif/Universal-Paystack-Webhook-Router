@@ -1,0 +1,16 @@
+/**
+ * Inject Unique Platform Identifiers into Secondary Sites Paystack Request Body for Routing
+ */
+add_filter('wc_gateway_paystack_request_body', 'mogolor_pwr_secondary_site_metadata', 10, 2);
+
+function mogolor_pwr_secondary_site_metadata($request_body, $order_id) {
+    if (!isset($request_body['metadata']) || !is_array($request_body['metadata'])) {
+        $request_body['metadata'] = array();
+    }
+
+    $request_body['metadata']['platform'] = 'tutor_lms';
+    $request_body['metadata']['origin_site'] = esc_url(home_url());
+    $request_body['metadata']['order_id'] = $order_id;
+
+    return $request_body;
+}

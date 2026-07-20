@@ -1,0 +1,12 @@
+/**
+ * Inject Unique Platform Identifiers into Main WooCommerce Checkout Arguments
+ */
+add_filter('woocommerce_payment_gateway_paystack_transaction_args', 'mogolor_pwr_main_site_metadata');
+
+function mogolor_pwr_main_site_metadata($args) {
+    if (!isset($args['metadata']) || !is_array($args['metadata'])) {
+        $args['metadata'] = array();
+    }
+    $args['metadata']['platform'] = 'woocommerce';
+    return $args;
+}
