@@ -1,11 +1,9 @@
-Here is a comprehensive, production-ready README.md file designed for your repository. It provides a clear project overview, detailed architectural explanation, step-by-step installation instructions, and copy-pasteable configuration code blocks.
-
 Universal Paystack Webhook Router
 A highly secure, robust, and lightweight WordPress plugin that enables a single centralized Paystack merchant account to dynamically route incoming webhook payment events (specifically charge.success) out to multiple independent target websites simultaneously. Routing decisions are made automatically using transaction metadata tags.
 
 This architecture completely solves the limitation of the Paystack dashboard allowing only a single Webhook URL per account, enabling merchants to seamlessly scale multi-site e-commerce structures, learning management systems, and SaaS instances off one payment gateway profile.
 
-🚀 Key Features
+Key Features
 Dynamic Request Proxying: Evaluates incoming Paystack JSON transaction payloads and forwards them verbatim to the exact child site responsible for the order.
 
 Cryptographic Signature Verification: Enforces security by verifying Paystack's cryptographic token header (X-Paystack-Signature) against your configured Live or Test Secret Keys via timing-attack-safe hash_equals comparisons before executing proxy paths.
@@ -16,7 +14,7 @@ Namespace Collision Defended: Completely isolated using an explicitly unique pre
 
 Native WP-REST API Architecture: Utilizes the robust register_rest_route layer rather than blocking admin hooks, resulting in sub-millisecond execution handshakes.
 
-📐 Architecture & Data Flow
+Architecture & Data Flow
 Transaction Occurs: A customer pays on a child platform (e.g., your secondary LMS site or main WooCommerce site).
 
 Metadata Tagged: A local snippet injects a distinct identification tag (e.g., platform => 'tutor_lms') into the Paystack checkout payload.
@@ -27,7 +25,7 @@ Validation and Verification: The Central Hub checks the signature. If it is veri
 
 Secure Forwarding: The hub duplicates the payload header signatures and seamlessly pipes the event down via wp_remote_post to the designated child store's webhook intake endpoint.
 
-🛠️ Installation Guide
+Installation Guide
 Step 1: Deploy the Central Router Hub Plugin
 You can install this plugin on your primary directory hub site using one of the following methods:
 
@@ -63,7 +61,6 @@ Provide your merchant credentials inside the Live Secret Key and Test Secret Key
 
 Scroll to the bottom and copy the customized integration link generated within the Integration Endpoint Information box. It will look like this:
 
-Plaintext
 https://your-main-site.com/wp-json/paystack/v1/router
 Click Save Changes.
 
